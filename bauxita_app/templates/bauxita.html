@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Problema de la Bauxita</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f3f7fc;
+        }
+        h1 { color: #004aad; }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            background-color: #004aad;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .resultado {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f0fe;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio del Problema de la Bauxita</h1>
+    <p>Ingrese los costos fijos de cada planta y ejecute el modelo.</p>
+
+    <form method="POST">
+        <label>Coste fijo planta B:</label>
+        <input type="number" name="costoB" step="any" required>
+
+        <label>Coste fijo planta C:</label>
+        <input type="number" name="costoC" step="any" required>
+
+        <label>Coste fijo planta D:</label>
+        <input type="number" name="costoD" step="any" required>
+
+        <label>Coste fijo planta E:</label>
+        <input type="number" name="costoE" step="any" required>
+
+        <button type="submit">Ejecutar modelo</button>
+    </form>
+
+    {% if resultado %}
+    <div class="resultado">
+        <h3>Resultado del modelo</h3>
+        <p>{{ resultado }}</p>
+        <ul>
+            {% for planta, valor in plantas_abiertas.items() %}
+                <li>{{ planta }}: {{ valor }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</body>
+</html>
